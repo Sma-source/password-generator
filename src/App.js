@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 function App() {
+  const [password, setPassword] = useState("");
+  const [passwordLength, setPasswordLength] = useState(20);
+  const [includeUppercase, setIncludeUppercase] = useState(false);
+  const [includeLowercase, setIncludeLowercase] = useState(false);
+  const [includeNumbers, setIncludeNumbers] = useState(false);
+  const [includeSymbols, setIncludeSymbols] = useState(false);
   return (
     <div className="App">
       <h1>Password Generator</h1>
