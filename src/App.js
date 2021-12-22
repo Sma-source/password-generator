@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function App() {
   const [password, setPassword] = useState("");
-  const [passwordLength, setPasswordLength] = useState(20);
+  const [passwordLength, setPasswordLength] = useState(8);
   const [includeUppercase, setIncludeUppercase] = useState(false);
   const [includeLowercase, setIncludeLowercase] = useState(false);
   const [includeNumbers, setIncludeNumbers] = useState(false);
@@ -21,11 +21,13 @@ function App() {
           <div className="form-group">
             <label htmlFor="password-strength">Password length</label>
             <input
+              defaultValue={passwordLength}
+              onChange={(e) => setPasswordLength(e.target.value)}
               type="number"
               id="password-strength"
               name="password-strength"
               max="20"
-              min="10"
+              min="6"
             />
           </div>
 
