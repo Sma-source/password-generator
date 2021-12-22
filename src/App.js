@@ -34,6 +34,8 @@ function App() {
           <div className="form-group">
             <label htmlFor="uppercase-letters">Include Uppercase Letters</label>
             <input
+              checked={includeUppercase}
+              onChange={(e) => setIncludeUppercase(e.target.checked)}
               type="checkbox"
               id="uppercase-letters"
               name="uppercase-letters"
@@ -43,6 +45,8 @@ function App() {
           <div className="form-group">
             <label htmlFor="lowercase-letters">Include Lowercase Letters</label>
             <input
+              checked={includeLowercase}
+              onChange={(e) => setIncludeLowercase(e.target.checked)}
               type="checkbox"
               id="lowercase-letters"
               name="lowercase-letters"
@@ -52,6 +56,8 @@ function App() {
           <div className="form-group">
             <label htmlFor="include-numbers">Include Numbers</label>
             <input
+              checked={includeNumbers}
+              onChange={(e) => setIncludeNumbers(e.target.checked)}
               type="checkbox"
               id="include-numbers"
               name="include-numbers"
@@ -61,6 +67,8 @@ function App() {
           <div className="form-group">
             <label htmlFor="include-symbols">Include Symbols</label>
             <input
+              checked={includeSymbols}
+              onChange={(e) => setIncludeSymbols(e.target.checked)}
               type="checkbox"
               id="include-symbols"
               name="include-symbols"
