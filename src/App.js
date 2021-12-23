@@ -7,6 +7,7 @@ import {
   specialCharacters,
 } from "./Store";
 import "react-toastify/dist/ReactToastify.css";
+import { COPY_SUCCESS } from "./message";
 
 function App() {
   const [password, setPassword] = useState("");
@@ -62,6 +63,29 @@ function App() {
   };
   const handleCopyPassword = (e) => {
     copyToClipBoard();
+  };
+  const notify = (message, hasError = false) => {
+    if (hasError) {
+      toast.error(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
   return (
     <div className="App">
