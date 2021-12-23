@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import {
   numbers,
-  UpperCaseletters,
-  lowerCasLetters,
+  upperCaseLetters,
+  lowerCaseLetters,
   specialCharacters,
 } from "./Store";
 
@@ -15,7 +15,34 @@ function App() {
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
 
-  const handleGeneratePassword = (e) => {};
+  const handleGeneratePassword = (e) => {
+    let characterList = "";
+    if (
+      !includeUppercase &&
+      !includeLowercase &&
+      !includeNumbers &&
+      !includeSymbols
+    ) {
+      alert("You must Select atleast one option", true);
+    }
+    if (includeLowercase) {
+      characterList = characterList + lowerCaseLetters;
+    }
+
+    if (includeUppercase) {
+      characterList = characterList + upperCaseLetters;
+    }
+
+    if (includeNumbers) {
+      characterList = characterList + numbers;
+    }
+
+    if (includeSymbols) {
+      characterList = characterList + specialCharacters;
+    }
+    setPassword(characterList);
+  };
+
   return (
     <div className="App">
       <h1>Password Generator</h1>
@@ -23,7 +50,7 @@ function App() {
         <div className="generator">
           <h2 className="generator__header">Password Generator</h2>
           <div className="generator__password">
-            <h3>Password</h3>
+            <h3>{password} </h3>
             <button className="copy__btn">Generate</button>
           </div>
 
