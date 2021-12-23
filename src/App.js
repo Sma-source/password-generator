@@ -71,7 +71,7 @@ function App() {
           <div className="generator__password">
             <h3>{password} </h3>
             <button onClick={handleCopyPassword} className="copy__btn">
-              Generate
+              Copy
             </button>
           </div>
 
