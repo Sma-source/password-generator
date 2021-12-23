@@ -7,6 +7,8 @@ function App() {
   const [includeLowercase, setIncludeLowercase] = useState(false);
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
+
+  const handleGeneratePassword = (e) => {};
   return (
     <div className="App">
       <h1>Password Generator</h1>
@@ -75,7 +77,9 @@ function App() {
             />
           </div>
 
-          <button className="generator__btn">Generate Password</button>
+          <button onClick={handleGeneratePassword} className="generator__btn">
+            Generate Password
+          </button>
         </div>
       </div>
     </div>
