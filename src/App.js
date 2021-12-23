@@ -1,5 +1,12 @@
 import { useState } from "react";
 
+import {
+  numbers,
+  UpperCaseletters,
+  lowerCasLetters,
+  specialCharacters,
+} from "./Store";
+
 function App() {
   const [password, setPassword] = useState("");
   const [passwordLength, setPasswordLength] = useState(8);
