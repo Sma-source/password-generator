@@ -40,9 +40,17 @@ function App() {
     if (includeSymbols) {
       characterList = characterList + specialCharacters;
     }
-    setPassword(characterList);
+    setPassword(createPassword(characterList));
   };
-
+  const createPassword = (characterList) => {
+    let password = "";
+    const characterListLength = characterList.length;
+    for (let i = 0; i < passwordLength; i++) {
+      const characterIndex = Math.round(Math.random() * characterListLength);
+      password = password + characterList.charAt(characterIndex);
+    }
+    return password;
+  };
   return (
     <div className="App">
       <h1>Password Generator</h1>
