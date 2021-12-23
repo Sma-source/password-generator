@@ -1,11 +1,12 @@
 import { useState } from "react";
-
+import { toast, ToastContainer } from "react-toastify";
 import {
   numbers,
   upperCaseLetters,
   lowerCaseLetters,
   specialCharacters,
 } from "./Store";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [password, setPassword] = useState("");
