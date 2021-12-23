@@ -7,7 +7,7 @@ import {
   specialCharacters,
 } from "./Store";
 import "react-toastify/dist/ReactToastify.css";
-import { COPY_SUCCESS } from "./message";
+import { COPY_SUCCESS } from "./Message";
 
 function App() {
   const [password, setPassword] = useState("");
@@ -25,7 +25,7 @@ function App() {
       !includeNumbers &&
       !includeSymbols
     ) {
-      alert("You must Select atleast one option", true);
+      notify("You must Select atleast one option", true);
     }
     if (includeLowercase) {
       characterList = characterList + lowerCaseLetters;
@@ -62,7 +62,12 @@ function App() {
     newTextArea.remove();
   };
   const handleCopyPassword = (e) => {
-    copyToClipBoard();
+    if (password === "") {
+      notify("Nothing To Copy", true);
+    } else {
+      copyToClipBoard();
+      notify(COPY_SUCCESS);
+    }
   };
   const notify = (message, hasError = false) => {
     if (hasError) {
@@ -160,6 +165,17 @@ function App() {
           <button onClick={handleGeneratePassword} className="generator__btn">
             Generate Password
           </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </div>
       </div>
     </div>
